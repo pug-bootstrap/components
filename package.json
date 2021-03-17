@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "cp node_modules/@pug-bootstrap/components/mixins/*.pug views/components/",
+    "postinstall": "copy-files-from-to",
     "deploy": "git push && git push --tags && npm publish"
   },
   "repository": {
@@ -29,7 +29,7 @@
   },
   "copyFiles": [
     {
-      "from": "node_modules/@pug-bootstrap/components/mixins/*.pug",
+      "from": "node_modules/@pug-bootstrap/components/mixins/*",
       "to": "views/components/"
     }
   ]
