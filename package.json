@@ -1,6 +1,6 @@
 {
   "name": "@pug-bootstrap/components",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Core mixins for Bootstrap components",
   "main": "index.js",
   "scripts": {
