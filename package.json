@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "cp -R node_modules/@pug-bootstrap/components/mixins/* views/components/",
+    "postinstall": "scripts/postinstall.js",
     "deploy": "git push && git push --tags && npm publish"
   },
   "repository": {
@@ -25,12 +25,6 @@
   },
   "homepage": "https://github.com/pug-bootstrap/components#readme",
   "dependencies": {
-    "copy-files-from-to": "^3.2.0"
-  },
-  "copyFiles": [
-    {
-      "from": "node_modules/@pug-bootstrap/components/mixins/*",
-      "to": "views/components/"
-    }
-  ]
+    "pug": "^3.0.2"
+  }
 }
