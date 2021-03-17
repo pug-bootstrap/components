@@ -1,0 +1,30 @@
+{
+  "name": "@pug-bootstrap/components",
+  "version": "0.0.0",
+  "description": "Core mixins for Bootstrap components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "copy-files-from-to"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pug-bootstrap/components.git"
+  },
+  "keywords": ["pug","bootstrap","pug-template","template"],
+  "author": "Rajasegar Chandran <rajasegar.c@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pug-bootstrap/components/issues"
+  },
+  "homepage": "https://github.com/pug-bootstrap/components#readme",
+  "devDependencies": {
+    "copy-files-from-to": "^3.2.0"
+  },
+   "copyFiles":[
+    {
+      "from": "node_modules/@pug-bootstrap/components/mixins/*.pug",
+      "to": "views/components/"
+    }
+  ]
+}

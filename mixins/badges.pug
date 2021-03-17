@@ -1,0 +1,13 @@
+//- badges.pug
+//- badge mixins
+
+//- Generic Simple badge
+mixin badge(type,label)
+  span.badge(class='badge-' + type)
+    = label
+
+//- Generic Simple pill badge
+mixin badge-pill(type,label)
+  span.badge.badge-pill(class='badge-' + type)
+    = label
+

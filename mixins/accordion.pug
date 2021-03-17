@@ -1,0 +1,31 @@
+//- accordion
+mixin accordion(id)
+  .accordion(id='accordion' + id)
+    block
+
+//- accordion-item
+mixin accordion-item(title,parent,expanded)
+  .card
+    +acc-header(title, expanded)
+    +acc-body(title,parent,expanded)
+      block
+
+mixin acc-header(title, expanded)
+  .card-header(id='heading' + title)
+    h2.mb-0
+      if expanded
+        button.btn.btn-link.btn-block.text-left(type="button", data-toggle="collapse", data-target="#collapse" + title, aria-expanded="true", aria-controls="collapse" + title) #{title}
+      else
+        button.btn.btn-link.btn-block.text-left(type="button", data-toggle="collapse", data-target="#collapse" + title, aria-expanded="false", aria-controls="collapse" + title) #{title}
+
+mixin acc-body(title, parent, expanded)
+  if expanded
+    .collapse.show(id="collapse" + title, aria-labelledby='heading'+ title, data-parent='#accordion' + parent)
+      .card-body
+        block
+  else
+    .collapse(id="collapse" + title, aria-labelledby='heading'+ title, data-parent='#accordion' + parent)
+      .card-body
+        block
+
+
