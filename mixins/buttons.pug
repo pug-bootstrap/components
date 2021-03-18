@@ -120,4 +120,39 @@ mixin btn-sm-warning(caption)
 mixin btn-sm-danger(caption)
         +btn(caption,"danger","sm")
         
-                
+//- Outline buttons
+mixin btn-outline(type)
+  +btn.btn(class="btn-outline-" + type)&attributes(attributes)
+    block
+
+mixin btn-outline-primary()
+  +btn-outline('primary')&attributes(attributes)
+    block
+
+mixin btn-outline-secondary()
+  +btn-outline('secondary')&attributes(attributes)
+    block
+
+mixin btn-outline-success()
+  +btn-outline('success')&attributes(attributes)
+    block
+
+mixin btn-outline-danger()
+  +btn-outline('danger')&attributes(attributes)
+    block
+
+mixin btn-outline-warning()
+  +btn-outline('warning')&attributes(attributes)
+    block
+
+mixin btn-outline-info()
+  +btn-outline('info')&attributes(attributes)
+    block
+
+mixin btn-outline-light()
+  +btn-outline('light')&attributes(attributes)
+    block
+
+mixin btn-outline-dark()
+  +btn-outline('dark')&attributes(attributes)
+    block

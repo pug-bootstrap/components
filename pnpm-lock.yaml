@@ -1,6 +1,6 @@
 dependencies:
   pug: 3.0.2
-lockfileVersion: 5.1
+lockfileVersion: 5.2
 packages:
   /@babel/helper-validator-identifier/7.12.11:
     dev: false
