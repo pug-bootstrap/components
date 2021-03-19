@@ -1,25 +1,81 @@
 //- Dropdown
-mixin dropdown(caption,items)
-	.dropdown
-		button.btn.btn-default.dropdown-toggle(type="button",data-toggle="dropdown")
-			= caption
-			| &nbsp;
-			span.caret
-		ul.dropdown-menu(role="menu",aria-labelledby="dropdownMenu1")
-			- var args = Array.prototype.slice.call(arguments);
-			for item in args[1]
-				li(role="presentation")
-					a(role="menuitem",tabindex="-1",href="#{item.url}")= item.text
+mixin dropdown(caption, type)
+  .dropdown
+    button.btn.dropdown-toggle(id='dropdown-' + caption, class='btn-' + type, type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+      | #{caption}
+    .dropdown-menu(aria-labelledby='dropdown-' + caption)
+      block
 
-//- Dropup
-mixin dropup(caption,items)
-	.dropup
-		button.btn.btn-default.dropdown-toggle(type="button",data-toggle="dropdown")
-			= caption
-			| &nbsp;
-			span.caret
-		ul.dropdown-menu(role="menu",aria-labelledby="dropupMenu1")
-			- var args = Array.prototype.slice.call(arguments);
-			for item in args[1]
-				li(role="presentation")
-					a(role="menuitem",tabindex="-1",href="#{item.url}")= item.text
+mixin dropdown-link(caption, type)
+  .dropdown
+    a.btn.dropdown-toggle(id='dropdown-' + caption, class='btn-' + type, type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' href="#" role="button")
+      | #{caption}
+    .dropdown-menu(aria-labelledby='dropdown-' + caption)
+      block
+
+mixin dropdown-btn(caption,type)
+  .btn-group
+    button.btn.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' class='btn-' + type)
+      | #{caption}
+    .dropdown-menu
+      block
+
+mixin dropup-btn(caption,type)
+  .btn-group.dropup
+    button.btn.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' class='btn-' + type)
+      | #{caption}
+    .dropdown-menu
+      block
+
+mixin dropright-btn(caption,type)
+  .btn-group.dropright
+    button.btn.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' class='btn-' + type)
+      | #{caption}
+    .dropdown-menu
+      block
+
+mixin dropleft-btn(caption,type)
+  .btn-group.dropleft
+    button.btn.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' class='btn-' + type)
+      | #{caption}
+    .dropdown-menu
+      block
+
+mixin dropdown-btn-lg(caption,type)
+  .btn-group
+    button.btn.btn-lg.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' class='btn-' + type)
+      | #{caption}
+    .dropdown-menu
+      block
+
+mixin dropdown-btn-sm(caption,type)
+  .btn-group
+    button.btn.btn-sm.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' class='btn-' + type)
+      | #{caption}
+    .dropdown-menu
+      block
+
+mixin dropdown-split(caption, type)
+  .btn-group
+    button.btn(type='button', class='btn-' + type) #{caption}
+    button.btn.dropdown-toggle.dropdown-toggle-split(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' class='btn-' + type)
+      span.sr-only Toggle Dropdown
+    .dropdown-menu
+      block
+
+mixin dropdown-split-lg(caption, type)
+  .btn-group
+    button.btn.btn-lg(type='button', class='btn-' + type) #{caption}
+    button.btn.dropdown-toggle.dropdown-toggle-split(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' class='btn-' + type)
+      span.sr-only Toggle Dropdown
+    .dropdown-menu
+      block
+
+mixin dropdown-split-sm(caption, type)
+  .btn-group
+    button.btn.btn-sm(type='button', class='btn-' + type) #{caption}
+    button.btn.dropdown-toggle.dropdown-toggle-split(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' class='btn-' + type)
+      span.sr-only Toggle Dropdown
+    .dropdown-menu
+      block
+
