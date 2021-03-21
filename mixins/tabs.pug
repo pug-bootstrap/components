@@ -1,22 +1,84 @@
 //- Tabs
 mixin tab-list(tabs,active)
-	ul.nav.nav-tabs(role="tablist")
-		each item,index in tabs
-			if (index === active)
-				li.active
-					a(href="#tab#{item}",role="tab",data-toggle="tab")= item
-			else
-				li
-					a(href="#tab#{item}",role="tab",data-toggle="tab")= item
-	.tab-content
-		block
-		
+  ul.nav.nav-tabs(role="tablist")
+    each item,index in tabs
+      - var tabId = 'tab-' + item
+      - var href= '#' + tabId
+      - var anchorId = item + '-tab'
+      if (index === active)
+        li.nav-item(role="presentation")
+          a.nav-link.active(id=anchorId, href=href,role="tab",data-toggle="tab", aria-controls=tabId, aria-selected=true)= item
+      else
+        li.nav-item(role="presentation")
+          a.nav-link(id=anchorId, href=href,role="tab",data-toggle="tab", aria-controls=tabId, aria-selected=false)= item
+  .tab-content
+    block
+                
 
 //- Tab pane
 mixin tab(id,active)
-	if(active)
-		.tab-pane.active(id="tab#{id}")
-			block
-	else
-		.tab-pane(id="tab#{id}")
-			block
+  - var tabId = 'tab-' + id
+  - var ariaLabel = id + '-tab'
+  if(active)
+    .tab-pane.fade.show.active(id=tabId, role="tabpanel", aria-labelledby=ariaLabel)
+      block
+  else
+    .tab-pane.fade(id=tabId, role="tabpanel", aria-labelledby=ariaLabel)
+      block
+
+//- Tabs with pills
+mixin tab-pills(tabs,active)
+  ul.nav.nav-pills(role="tablist")
+    each item,index in tabs
+      - var tabId = 'pill-' + item
+      - var href= '#' + tabId
+      - var anchorId = item + '-pill'
+      if (index === active)
+        li.nav-item(role="presentation")
+          a.nav-link.active(id=anchorId, href=href,role="tab",data-toggle="pill", aria-controls=tabId, aria-selected=true)= item
+      else
+        li.nav-item(role="presentation")
+          a.nav-link(id=anchorId, href=href,role="tab",data-toggle="pill", aria-controls=tabId, aria-selected=false)= item
+  .tab-content
+    block
+
+//- Tabs with vertical pills
+mixin tab-pills-vertical(tabs,active,leftColWidth, rightColWidth)
+  .row
+    div(class=leftColWidth)
+      .nav.flex-column.nav-pills(role="tablist", aria-orientation="vertical")
+        each item,index in tabs
+          - var tabId = 'v-pills-' + item
+          - var href= '#' + tabId
+          - var anchorId = 'v-pills-' + item + '-tab'
+          if (index === active)
+            li.nav-item(role="presentation")
+              a.nav-link.active(id=anchorId, href=href,role="tab",data-toggle="pill", aria-controls=tabId, aria-selected="true")= item
+          else
+            li.nav-item(role="presentation")
+              a.nav-link(id=anchorId, href=href,role="tab",data-toggle="pill", aria-controls=tabId, aria-selected="false")= item
+    div(class=rightColWidth)
+      .tab-content
+        block
+
+//- Tab vertical pill
+mixin tab-v-pill(id,active)
+  - var tabId = 'v-pills-' + id
+  - var ariaLabel = 'v-pills-' + id + '-tab'
+  if(active)
+    .tab-pane.fade.show.active(id=tabId, role="tabpanel", aria-labelledby=ariaLabel)
+      block
+  else
+    .tab-pane.fade(id=tabId, role="tabpanel", aria-labelledby=ariaLabel)
+      block
+
+//- Tab pill
+mixin tab-pill(id,active)
+  - var tabId = 'pill-' + id
+  - var ariaLabel = id + '-pill'
+  if(active)
+    .tab-pane.fade.show.active(id=tabId, role="tabpanel", aria-labelledby=ariaLabel)
+      block
+  else
+    .tab-pane.fade(id=tabId, role="tabpanel", aria-labelledby=ariaLabel)
+      block
