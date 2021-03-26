@@ -45,12 +45,12 @@ mixin input-group(prepend,append)
   .form-group
     .input-group
       unless !prepend
-        .input-group-addon
-          = prepend
+        .input-group-prepend
+          .input-group-text= prepend
       block
       unless !append
-        .input-group-addon
-          = append
+        .input-group-append
+          .input-group-text= append
 
 //- Icon button
 mixin icon-btn(icon)
