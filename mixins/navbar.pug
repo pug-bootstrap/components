@@ -74,4 +74,9 @@ mixin navbar-static(name,id,style)
       .collapse.navbar-collapse( id=id )
         ul.nav.navbar-nav
           block
+
+mixin navbar-toggler(target)
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#' + target aria-controls=target aria-expanded='false' aria-label='Toggle navigation')&attributes(attributes)
+    span.navbar-toggler-icon
+
 //- End navbar mixins
